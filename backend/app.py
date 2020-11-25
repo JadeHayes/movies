@@ -18,7 +18,7 @@ app.jinja_env.filters['pretty_json'] = pretty_json
 
 @app.route("/")
 def show_movies():
-    query = request.args.get("query", "monty python")
+    query = request.args.get("query", "Monty python")
     headers = {"x-rapidapi-key": "52e1fd5f72mshd42007aabdf908fp183231jsn25f1dacdda82",
 	"x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com"}
     res = requests.get(f"https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/{query}",
