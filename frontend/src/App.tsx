@@ -15,7 +15,23 @@ interface MovieObject {
 
 const StyledResContainer = styled.div`
     cursor: pointer;
+    padding-top: 12px;
 `;
+
+const StyledLikeOutlined = styled(LikeOutlined)`
+    padding: 12px 48px;
+    text-align: center;
+    margin-right: 8px;
+    background: rgb(248,248,248);
+`;
+
+const StyledDislikeOutlined = styled(DislikeOutlined)`
+    padding: 12px 48px;
+    text-align: center;
+    margin-left: 8px;
+    background: rgb(248,248,248);
+`;
+
 
 const StlyedMovieImg = styled.img`
   height: 200px;
@@ -30,6 +46,7 @@ const StlyedInput = styled(Input)`
 const StyledCol = styled(Col)`
   height: 300px;
   width: 300px;
+  text-align: center;
 `;
 
 const App = () => {
@@ -45,13 +62,13 @@ const App = () => {
       <StlyedInput size="large" placeholder="Monty Python" suffix={
         <SearchOutlined />
       }/>
-      <Row gutter={[16, 16]}>
+      <Row gutter={16}>
         {movies.map((movie: MovieObject) => <StyledCol span={6}>
           <h4>{movie.title}</h4>
           <StlyedMovieImg src={movie.image} />
           <StyledResContainer>
-            <LikeOutlined label='like' />
-            <DislikeOutlined label='dislike' />
+            <StyledLikeOutlined label='like' />
+            <StyledDislikeOutlined label='dislike' />
           </StyledResContainer>
         </StyledCol>
         )}
